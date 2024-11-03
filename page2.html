@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 2</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div class="option">         
+        <form id="nextQuestionForm">
+            <label>2. How often do you feel stressed?</label>
+            <div>
+                <label><input type="radio" name="stress" value="4"> Almost never</label> 
+                <label><input type="radio" name="stress" value="3"> Sometimes</label>
+                <br>
+                <label><input type="radio" name="stress" value="2"> Often</label>
+                <label><input type="radio" name="stress" value="1"> Always</label>
+            </div>
+        </form>
+        <br>            
+        <button class="btn" onclick="getValues()">SUBMIT</button>  
+    </div>
+    <script>
+        // Set previously selected value if it exists
+        window.onload = function() {
+            const savedValue = localStorage.getItem('happiness');
+            if (savedValue) {
+                const radios = document.querySelectorAll('input[name="happiness"]');
+                for (const radio of radios) {
+                    if (radio.value === savedValue) {
+                        radio.checked = true;
+                    }
+                }
+            }
+        };
+
+        function getValues() {
+            const form = document.getElementById("nextQuestionForm");
+            const selectedValue = form.stress.value;
+            console.log("Input value:", selectedValue);
+           
+         
+            
+            // Disable all radio buttons
+            const radios = form.stress;
+            for (let i = 0; i < radios.length; i++) {
+                radios[i].disabled = true;
+            }
+            
+            // Store the value in local storage
+            localStorage.setItem('stress', selectedValue);
+            
+            // Redirect to the next page
+            setTimeout(() => {
+                window.location.href = 'page3.html'; // Change this to the next page
+            }, 1000);
+        }
+    </script>
+</body>
+</html>

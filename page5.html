@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Question</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div class="option">
+        
+        <form id="finalQuestionForm">
+            <label>5. How satisfied are you with your overall experience?</label>
+            <div>
+                <label><input type="radio" name="satisfaction" value="4"> Very satisfied</label>
+                <label><input type="radio" name="satisfaction" value="3"> Satisfied</label>
+                <br>
+                <label><input type="radio" name="satisfaction" value="2"> Neutral</label>
+                <label><input type="radio" name="satisfaction" value="1"> Dissatisfied</label>
+            </div>
+        </form>
+        <button  class="btn" onclick="calculateTotal()">Submit</button>
+    </div>
+
+    <script>
+        function calculateTotal() {
+            const happiness = parseInt(localStorage.getItem('happiness')) || 0;
+            const stress = parseInt(localStorage.getItem('stress')) || 0;
+            const anxiety = parseInt(localStorage.getItem('anxiety')) || 0;
+            const motivation = parseInt(localStorage.getItem('motivation')) || 0;
+
+            const form = document.getElementById("finalQuestionForm");
+            const satisfactionValue = form.satisfaction.value ? parseInt(form.satisfaction.value) : 0;
+
+            // Check if a satisfaction value is selected
+            if (!form.satisfaction.value) {
+                alert("Please select a satisfaction level.");
+                return;
+            }
+
+            // Total calculation
+            const total = Math.min(happiness + stress + anxiety + motivation + satisfactionValue, 20);
+
+            // Store the total score in local storage
+            localStorage.setItem('totalScore', total);
+
+            // Redirect to the results page
+            window.location.href = 'page6.html';
+        }
+    </script>
+</body>
+</html>

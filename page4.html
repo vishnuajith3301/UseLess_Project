@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 4</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div class="option">         
+        <form id="questionForm">
+            <label>4. How often do you feel motivated?</label>
+            <div>
+                <label><input type="radio" name="motivation" value="4"> Almost always</label> 
+                <label><input type="radio" name="motivation" value="3"> Most of the time</label>
+                <br>
+                <label><input type="radio" name="motivation" value="2"> Some of the time</label>
+                <label><input type="radio" name="motivation" value="1"> Rarely</label>
+            </div>
+        </form>
+        <br>            
+        <button class="btn" onclick="getValues()">SUBMIT</button>  
+    </div>
+    <script>
+        window.onload = function() {
+            const savedValue = localStorage.getItem('motivation');
+            if (savedValue) {
+                const radios = document.querySelectorAll('input[name="motivation"]');
+                for (const radio of radios) {
+                    if (radio.value === savedValue) {
+                        radio.checked = true;
+                    }
+                }
+            }
+        };
+
+        function getValues() {
+            const form = document.getElementById("questionForm");
+            const selectedValue = form.motivation.value;
+            console.log("Input value:", selectedValue);
+            
+            if (!selectedValue) {
+                alert("Please select a motivation level.");
+                return;
+            }
+            
+            // Disable all radio buttons
+            const radios = form.motivation;
+            for (let i = 0; i < radios.length; i++) {
+                radios[i].disabled = true;
+            }
+            
+            // Store the value in local storage
+            localStorage.setItem('motivation', selectedValue);
+            
+            // Redirect to the next page
+            setTimeout(() => {
+                window.location.href = 'page5.html'; // Change this to the next page
+            }, 1000);
+        }
+    </script>
+</body>
+</html>

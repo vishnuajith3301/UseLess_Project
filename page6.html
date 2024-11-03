@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Total Score and Advice</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <div class="result">
+        <h1>Your Total Score</h1>
+        <p id="totalScore"></p>
+        <div id="statistics"></div>
+        <div id="advice"></div>
+        <div id="category"></div>
+        <button onclick="clearStorage()">Finish</button>
+    </div>
+    
+    <script>
+        window.onload = function() {
+            const happiness = parseInt(localStorage.getItem('happiness')) || 0;
+            const stress = parseInt(localStorage.getItem('stress')) || 0;
+            const anxiety = parseInt(localStorage.getItem('anxiety')) || 0;
+            const motivation = parseInt(localStorage.getItem('motivation')) || 0;
+            const satisfaction = parseInt(localStorage.getItem('totalScore')) || 0;
+
+            // Calculate total score
+            const totalScore = happiness + stress + anxiety + motivation + satisfaction;
+
+            // Ensure it is capped at 20
+            const finalScore = Math.min(totalScore, 20);
+            document.getElementById('totalScore').textContent = `Total score: ${finalScore}`;
+
+            generateStatistics(happiness, stress, anxiety, motivation, satisfaction);
+            provideAdvice(finalScore);
+            classifyCategory(finalScore);
+        };
+
+        function generateStatistics(happiness, stress, anxiety, motivation, satisfaction) {
+            const statistics = `
+                <h2>Statistics</h2>
+                <ul>
+                    <li>Happiness Score: ${happiness}</li>
+                    <li>Stress Score: ${stress}</li>
+                    <li>Anxiety Score: ${anxiety}</li>
+                    <li>Motivation Score: ${motivation}</li>
+                    <li>Satisfaction Score: ${satisfaction}</li>
+                </ul>
+            `;
+            document.getElementById('statistics').innerHTML = statistics;
+        }
+
+        function provideAdvice(totalScore) {
+            let advice = "";
+            if (totalScore >= 16) {
+                advice = "You're doing great! Keep maintaining your positive habits.";
+            } else if (totalScore >= 11) {
+                advice = "You're in a good place, but consider focusing on stress management.";
+            } else if (totalScore >= 6) {
+                advice = "It may be beneficial to reflect on areas that need improvement, such as stress and anxiety.";
+            } else {
+                advice = "Consider seeking support from friends, family, or a professional to improve your well-being.";
+            }
+            document.getElementById('advice').innerHTML = `<h2>Advice</h2><p>${advice}</p>`;
+        }
+
+        function classifyCategory(totalScore) {
+            let category = "";
+            if (totalScore >= 16) {
+                category = "Healthy";
+            } else if (totalScore >= 11) {
+                category = "Healthy but Okay";
+            } else if (totalScore >= 6) {
+                category = "Moderate";
+            } else {
+                category = "Unhealthy";
+            }
+            document.getElementById('category').innerHTML = `<h2>Category</h2><p>${category}</p>`;
+        }
+
+        function clearStorage() {
+            localStorage.clear(); // Clear storage when done
+          window.location.href = 'index.html'; // Redirect to your home or another page
+        }
+    </script>
+</body>
+</html>
