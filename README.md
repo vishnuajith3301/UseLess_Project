@@ -1,6 +1,6 @@
 <img width="1280" alt="readme-banner" src="https://github.com/user-attachments/assets/35332e92-44cb-425b-9dff-27bcf1023c6c">
 
-# [Project Name] 🎯
+# MindX🎯
 
 
 ## Basic Details
@@ -35,46 +35,38 @@ its an web application
 
 
 # Screenshots (Add at least 3)
-![Screenshot1](Add screenshot 1 here with proper name)
-*Add caption explaining what this shows*
+this is the first page also the first question 
 ![Screenshot 2024-11-03 081932](https://github.com/user-attachments/assets/89f468a1-9a23-4541-89f6-c31ed9ab03da)
 
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
+
+
+this is the report area
 ![Screenshot 2024-11-03 081924](https://github.com/user-attachments/assets/e4a4d9e0-b9b7-4e89-8f0b-51145f0bd05d)
 
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
+last page with thankls
 ![Screenshot 2024-11-03 081901](https://github.com/user-attachments/assets/cc8912a7-aa07-40cd-a87b-44297e3ebab5)
 
 
 
-# Build Photos
-![Components](Add photo of your components here)
-*List out all components shown*
 
-![Build](Add photos of build process here)
-*Explain the build steps*
-
-![Final](Add photo of final product here)
-*Explain the final build*
-
-### Project Demo
 # Video
 
-*Explain what 
 
-https://github.com/user-attachments/assets/dd1a2a2b-8be5-469a-92b8-46bccfa65047
+https://github.com/user-attachments/assets/49f1d27a-9160-4499-8691-adab94156048
+
+
+*Explain what 
+this video shows our mental health surevy app ,in our app there will be 5 question from that five question our software get 
+the clear idea about the mental health,and also we mention some advice 
+
 
 the video demonstrates*
 
-# Additional Demos
-[Add any extra demo materials/links]
 
 ## Team Contributions
-- Vishnu: [Specific contributions]
-- [Name 2]: [Specific contributions]
-- [Name 3]: [Specific contributions]
+- Vishnu: coder
+- Glorin Johnson:designer
+- Devananda Manoj: designer
 
 ---
 Made with ❤️ at TinkerHub Useless Projects 
